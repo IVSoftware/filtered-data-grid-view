@@ -93,10 +93,14 @@ namespace filtered_data_grid_view
                         break;
                 }
             }
+            // If the checbox changes, reapply the filter.
             checkBoxFilterChampions.CheckedChanged += (sender, e) =>
             {
                 ApplyFilter();
             };
+            // If the underlying list of all wrestlers changes, reapply the filter.
+            AllWrestlers.ListChanged += (sender, e) => ApplyFilter();
+
             ApplyFilter();
         }
 
